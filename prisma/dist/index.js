@@ -63,3 +63,44 @@ function getUser(username) {
     });
 }
 // getUser("admin2")
+function createTodo(userId, title, description) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const res = yield prisma.todos.create({
+            data: {
+                title,
+                description,
+                userId,
+                done: false
+            }
+        });
+        return res;
+    });
+}
+createTodo(1, "go to gym", "go to gym and do 10 pushups");
+function getTodos(userId) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const res = yield prisma.todos.findMany({
+            where: {
+                userId
+            }
+        });
+        return res;
+    });
+}
+getTodos(1);
+function getTodosAndUserDetails(userId) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const res = yield prisma.todos.findMany({
+            where: {
+                userId: userId,
+            },
+            select: {
+                user: true,
+                title: true,
+                description: true
+            }
+        });
+        return res;
+    });
+}
+getTodosAndUserDetails(1);
