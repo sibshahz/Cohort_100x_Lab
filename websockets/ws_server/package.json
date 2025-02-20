@@ -1,0 +1,21 @@
+{
+  "name": "websockets",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc": "tsc -b",
+    "start-express": "node dist/index.js",
+    "start-server": "node dist/httpserver.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/express": "^4.17.21",
+    "@types/ws": "^8.5.11",
+    "express": "^4.19.2",
+    "ws": "^8.18.0"
+  }
+}
